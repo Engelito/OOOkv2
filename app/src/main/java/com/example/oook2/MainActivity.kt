@@ -10,6 +10,7 @@ import kotlin.math.pow
 class MainActivity : AppCompatActivity() {
 
     private val equation = mutableListOf<String>()
+    private val stepsToSolve = mutableListOf<String>()
     private val add = {a:Float,b:Float -> a + b}
     private val sub = {a:Float,b:Float -> a - b}
     private val mult = {a:Float,b:Float -> a * b}
@@ -34,7 +35,8 @@ class MainActivity : AppCompatActivity() {
         }
         val result = runEquation(equation)
         //put into textview
-        getOP.setText(result[count])
+        //getOP.setText(result[count])
+        getOP.setText(stepsToSolve.toString())
         count += 1
     }
     fun doMath(oper:String, equation:MutableList<String>): MutableList<String> {
@@ -43,6 +45,7 @@ class MainActivity : AppCompatActivity() {
         equation.removeAt(myIndex -1)
         equation.removeAt(myIndex-1)
         equation[myIndex-1]= result.toString()
+        stepsToSolve.add(equation.toString())
         return equation
     }
 
