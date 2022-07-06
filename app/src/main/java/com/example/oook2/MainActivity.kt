@@ -15,9 +15,8 @@ class MainActivity : AppCompatActivity() {
     private val mult = {a:Float,b:Float -> a * b}
     private val div = {a:Float,b:Float -> a / b}
     private val expo = {a:Float,b:Float -> a.pow(b)}
-    private var count = 0
     private val ops = mapOf("+" to add, "-" to sub,"*" to mult,"/" to div, "^" to expo)
-
+    private var count = 0
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -35,14 +34,12 @@ class MainActivity : AppCompatActivity() {
         }
         val result = runEquation(equation)
         //put into textview
-        getOP.setText(result[0])
-
+        getOP.setText(result[count])
+        count += 1
     }
     fun doMath(oper:String, equation:MutableList<String>): MutableList<String> {
         val myIndex = equation.indexOf(oper)
         val result = ops[oper]?.let { it(equation[myIndex-1].toFloat(), equation[myIndex+1].toFloat()) }
-
-
         equation.removeAt(myIndex -1)
         equation.removeAt(myIndex-1)
         equation[myIndex-1]= result.toString()
