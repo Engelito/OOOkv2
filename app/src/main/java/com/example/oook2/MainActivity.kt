@@ -45,7 +45,7 @@ class MainActivity : AppCompatActivity() {
         equation.removeAt(myIndex -1)
         equation.removeAt(myIndex-1)
         equation[myIndex-1]= result.toString()
-        stepsToSolve.add(equation.toString())
+        stepsToSolve.add(equation.toString().replace(',',' '))
         return equation
     }
 
