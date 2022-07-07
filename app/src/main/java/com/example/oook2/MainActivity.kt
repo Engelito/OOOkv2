@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         var str: String = op.text.toString()
         for (item in str.split(" "))
         {
-            equation.add(item.toString())
+            equation.add(item)
         }
         runEquation(equation)
         //put into textview
