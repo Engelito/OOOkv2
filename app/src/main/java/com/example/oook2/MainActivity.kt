@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         val result = runEquation(equation)
         //put into textview
         //getOP.setText(result[count])
-        getOP.setText(stepsToSolve.toString())
+        getOP.setText(stepsToSolve.toString().replace("[","").replace("]","").replace(",","\n"))
         count += 1
     }
     fun doMath(oper:String, equation:MutableList<String>): MutableList<String> {
