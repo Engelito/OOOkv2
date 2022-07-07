@@ -36,7 +36,7 @@ class MainActivity : AppCompatActivity() {
         runEquation(equation)
         //put into textview
         //getOP.setText(result[count])
-        getOP.setText(stepsToSolve.toString().replace("[","").replace("]","").replace(",","\n"))
+        getOP.text = stepsToSolve.toString().replace("[","").replace("]","").replace(",","\n")
     }
     fun doMath(oper:String, equation:MutableList<String>): MutableList<String> {
         val myIndex = equation.indexOf(oper)
