@@ -29,6 +29,7 @@ class MainActivity : AppCompatActivity() {
         //get operation from edit text
 
         var str: String = op.text.toString()
+        stepsToSolve.add(str)
         for (item in str.split(" "))
         {
             equation.add(item)
