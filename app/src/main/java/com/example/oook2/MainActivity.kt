@@ -31,13 +31,12 @@ class MainActivity : AppCompatActivity() {
         var str: String = op.text.toString()
         for (item in str.split(" "))
         {
-            equation.add(item.toString())
+            equation.add(item)
         }
         val result = runEquation(equation)
         //put into textview
         //getOP.setText(result[count])
         getOP.setText(stepsToSolve.toString().replace("[","").replace("]","").replace(",","\n"))
-        count += 1
     }
     fun doMath(oper:String, equation:MutableList<String>): MutableList<String> {
         val myIndex = equation.indexOf(oper)
