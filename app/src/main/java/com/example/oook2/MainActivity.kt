@@ -3,6 +3,7 @@ package com.example.oook2
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
+import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
 import kotlin.math.pow
@@ -18,6 +19,8 @@ class MainActivity : AppCompatActivity() {
     private val expo = {a:Float,b:Float -> a.pow(b)}
     private val ops = mapOf("+" to add, "-" to sub,"*" to mult,"/" to div, "^" to expo)
     private var count = 0
+
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -26,6 +29,7 @@ class MainActivity : AppCompatActivity() {
     public fun handleText(view: View) {
         val op: EditText = findViewById(R.id.editText1)
         val getOP: TextView = findViewById(R.id.textView1)
+        val resetButton = findViewById<Button>(R.id.reset)
         //get operation from edit text
 
         var str: String = op.text.toString()
@@ -38,6 +42,8 @@ class MainActivity : AppCompatActivity() {
         //put into textview
         //getOP.setText(result[count])
         getOP.text = stepsToSolve.toString().replace("[","").replace("]","").replace(",","\n")
+        resetButton.setOnClickListener{ reset()}
+
     }
     fun doMath(oper:String, equation:MutableList<String>): MutableList<String> {
         val myIndex = equation.indexOf(oper)
@@ -61,6 +67,14 @@ class MainActivity : AppCompatActivity() {
 
         }
         return newEquation
+
+    }
+
+    fun reset(){
+        val getOP: TextView = findViewById(R.id.textView1)
+        getOP.text = ""
+        stepsToSolve.clear()
+        equation.clear()
 
     }
 }
