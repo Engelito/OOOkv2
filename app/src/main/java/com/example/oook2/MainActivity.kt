@@ -32,6 +32,10 @@ class MainActivity : AppCompatActivity() {
         val resetButton = findViewById<Button>(R.id.reset)
         //get operation from edit text
 
+        getOP.text = ""
+        stepsToSolve.clear()
+        equation.clear()
+
         var str: String = op.text.toString()
         stepsToSolve.add(str)
         for (item in str.split(" "))
