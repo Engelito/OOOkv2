@@ -18,8 +18,6 @@ class MainActivity : AppCompatActivity() {
     private val div = {a:Float,b:Float -> a / b}
     private val expo = {a:Float,b:Float -> a.pow(b)}
     private val ops = mapOf("+" to add, "-" to sub,"*" to mult,"/" to div, "^" to expo)
-    private var count = 0
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -43,9 +41,7 @@ class MainActivity : AppCompatActivity() {
             equation.add(item)
         }
         val result = runEquation(equation)
-        //put into textview
-        //getOP.setText(result[count])
-        getOP.text = stepsToSolve.toString().replace("[","").replace("]","").replace(",","\n")
+        getOP.setText(stepsToSolve.toString().replace("[","").replace("]","").replace(",","\n"))
         resetButton.setOnClickListener{ reset()}
 
     }
@@ -79,6 +75,5 @@ class MainActivity : AppCompatActivity() {
         getOP.text = ""
         stepsToSolve.clear()
         equation.clear()
-
     }
 }
