@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
             equation.add(item)
         }
         val result = runEquation(equation)
-        getOP.setText(stepsToSolve.toString().replace("[","").replace("]","").replace(",","\n"))
+        getOP.text = (stepsToSolve.toString().replace("[","").replace("]","").replace(",","\n"))
         resetButton.setOnClickListener{ reset()}
 
     }
@@ -56,8 +56,9 @@ class MainActivity : AppCompatActivity() {
     }
 
     fun runEquation(equation: MutableList<String>): MutableList<String> {
-        val operators = listOf<String>("^","/","*","+","-")
         var newEquation = mutableListOf<String>()
+        val operators = listOf<String>("^","/","*","+","-")
+
         for(oper in operators)
         {
             while(oper in equation)
