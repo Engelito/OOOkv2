@@ -24,6 +24,11 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
 
     }
+    //Function that handles all the text input and output
+    //Converts the user input into a list to be passed through later
+    //Output on screen is defined as the runEquation method runs
+    //Converts list to readable steps for the app
+    //Also calls reset button when pressed
     public fun handleText(view: View) {
         val op: EditText = findViewById(R.id.editText1)
         val getOP: TextView = findViewById(R.id.textView1)
@@ -40,12 +45,16 @@ class MainActivity : AppCompatActivity() {
         {
             equation.add(item)
         }
-        val result = runEquation(equation)
+        runEquation(equation)
         getOP.text = (stepsToSolve.toString().replace("[","").replace("]","").replace(",","\n"))
         resetButton.setOnClickListener{ reset()}
 
     }
-    fun doMath(oper:String, equation:MutableList<String>): MutableList<String> {
+    //The method does the math operations in the list and calls the ops math with the assigned lambda functions
+    //Finds the operator in the list, and does the assigned math operation,
+    //based on the index before and after the operator
+    //adds the step into the list of lists stepsToSolve
+    private fun doMath(oper:String, equation:MutableList<String>): MutableList<String> {
         val myIndex = equation.indexOf(oper)
         val result = ops[oper]?.let { it(equation[myIndex-1].toFloat(), equation[myIndex+1].toFloat()) }
         equation.removeAt(myIndex -1)
@@ -55,7 +64,11 @@ class MainActivity : AppCompatActivity() {
         return equation
     }
 
-    fun runEquation(equation: MutableList<String>): MutableList<String> {
+
+//Looks through the list equation and finds the operators in order
+//Calls the doMath function to do the appropriate math in order of the operators list
+//returns the final answer
+    private fun runEquation(equation: MutableList<String>): MutableList<String> {
         var newEquation = mutableListOf<String>()
         val operators = listOf<String>("^","/","*","+","-")
 
@@ -71,7 +84,7 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    fun reset(){
+    private fun reset(){
         val getOP: TextView = findViewById(R.id.textView1)
         getOP.text = ""
         stepsToSolve.clear()
