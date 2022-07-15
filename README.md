@@ -22,10 +22,10 @@ Kotlin is supported by all major Java IDEs including IntelliJ IDEA, Android Stud
 
 # Collaborators
 
-Christian Mijangos 
-Benjamin Jenson 
-Tyler Skalka 
-Angel Gonzales 
+*Christian Mijangos 
+*Benjamin Jenson 
+*Tyler Skalka 
+*Angel Gonzales 
 
 # Useful Websites
 
