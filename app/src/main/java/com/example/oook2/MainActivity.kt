@@ -10,6 +10,7 @@ import kotlin.math.pow
 
 class MainActivity : AppCompatActivity() {
 
+    // Variables we are using for the operators
     private val equation = mutableListOf<String>()
     private val stepsToSolve = mutableListOf<String>()
     private val add = {a:Float,b:Float -> a + b}
@@ -83,7 +84,8 @@ class MainActivity : AppCompatActivity() {
         return newEquation
 
     }
-
+// This function is for the purpose of creating a reset button and delete
+// what is in the text view, including the steps and the equation.
     private fun reset(){
         val getOP: TextView = findViewById(R.id.textView1)
         getOP.text = ""

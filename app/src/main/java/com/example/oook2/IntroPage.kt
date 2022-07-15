@@ -11,6 +11,8 @@ class IntroPage : AppCompatActivity() {
         setContentView(R.layout.activity_intro_page)
 
 
+        // We are creating a variable along with a button so we can use the button
+        // to go to the about us page or the Main activity page
         val button_Go: Button = findViewById(R.id.button_Go)
 
         button_Go.setOnClickListener {

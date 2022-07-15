@@ -10,6 +10,8 @@ class About : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_about)
 
+        // We are creating a variable along with a button so we can use the button
+        // to go to the about us page or the Intro page
         val bk_button: Button = findViewById(R.id.bk_button)
 
         bk_button.setOnClickListener{
